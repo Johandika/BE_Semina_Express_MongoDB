@@ -29,7 +29,11 @@ const updateCategories = async (req) => {
   // apabila check true / data categories sudah ada maka kita tampilkan error bad request dengan message kategori nama duplikat
   if (check) throw new BadRequestError("kategori nama duplikat");
 
-  const result = await Categories.findOneAndUpdate({ _id: id }, { name }, { new: true, runValidators: true });
+  const result = await Categories.findOneAndUpdate(
+    { _id: id },
+    { name },
+    { new: true, runValidators: true }
+  );
 
   // jika id result false / null maka akan menampilkan error `Tidak ada Kategori dengan id` yang dikirim client
   if (!result) throw new NotFoundError(`Tidak ada Kategori dengan id :  ${id}`);
@@ -60,4 +64,19 @@ const deleteCategories = async (req) => {
   return result;
 };
 
-module.exports = { getAllCategories, createCategories, getOneCategories, updateCategories, deleteCategories };
+const checkingCategories = async (id) => {
+  const result = await Categories.findOne({ _id: id });
+
+  if (!result) throw new NotFoundError(`Tidak ada Kategori dengan id :  ${id}`);
+
+  return result;
+};
+
+module.exports = {
+  getAllCategories,
+  createCategories,
+  getOneCategories,
+  updateCategories,
+  deleteCategories,
+  checkingCategories,
+};
