@@ -1,4 +1,4 @@
-const mongoose = require("mmongoose");
+const mongoose = require("mongoose");
 
 const orderDetailSchema = new mongoose.Schema({
   ticketCategories: {
@@ -27,13 +27,13 @@ const orderSchema = new mongoose.Schema(
     personalDetail: {
       firsName: {
         type: String,
-        required: [true, "Please provide first name!"],
+        required: [true, "Nama depan harus diisi!"],
         minlength: 3,
         maxlength: 50,
       },
       lastName: {
         type: String,
-        required: [true, "Please provide first name!"],
+        required: [true, "Nama belakang harus diisi!"],
         minlength: 3,
         maxlength: 50,
       },
