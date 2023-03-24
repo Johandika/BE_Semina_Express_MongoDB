@@ -80,7 +80,7 @@
     },
     "payment": "623eb95b15919466fa3b53b2",
     "createdAt": {
-      "$date": {
+      "$date": { 
         "$numberLong": "0"
       }
     },

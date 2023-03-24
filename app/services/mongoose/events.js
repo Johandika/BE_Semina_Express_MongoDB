@@ -40,7 +40,19 @@ const getAllEvents = async (req) => {
 };
 
 const createEvents = async (req) => {
-  const { title, date, about, tagline, venueName, keyPoint, statusEvent, tickets, image, category, talent } = req.body;
+  const {
+    title,
+    date,
+    about,
+    tagline,
+    venueName,
+    keyPoint,
+    statusEvent,
+    tickets,
+    image,
+    category,
+    talent,
+  } = req.body;
 
   // cari image, category dan talent dengan field id
   await checkingImage(image);
@@ -93,7 +105,19 @@ const getOneEvents = async (req) => {
 
 const updateEvents = async (req) => {
   const { id } = req.params;
-  const { title, date, about, tagline, venueName, keyPoint, statusEvent, tickets, image, category, talent } = req.body;
+  const {
+    title,
+    date,
+    about,
+    tagline,
+    venueName,
+    keyPoint,
+    statusEvent,
+    tickets,
+    image,
+    category,
+    talent,
+  } = req.body;
 
   // cari image, category dan talent dengan field id
   await checkingImage(image);
@@ -156,10 +180,29 @@ const deleteEvents = async (req) => {
   return result;
 };
 
+const changeStatusEvents = async (req) => {
+  const { id } = req.params;
+  const { statusEvent } = req.body;
+  //cari event berdasarkan field id
+  const checkEvent = await Events.findOne({
+    _id: id,
+    organizer: req.user.organizer,
+  });
+
+  //jika id result false/null maka akan menampilkan error "Tidak ada acara dengan id" yang di kirim client
+  if (!checkEvent) throw new NotFoundError(`Tidak ada acara dengan id : ${id} `);
+
+  checkEvent.statusEvent = statusEvent;
+  await checkEvent.save();
+
+  return checkEvent;
+};
+
 module.exports = {
   getAllEvents,
   createEvents,
   getOneEvents,
   updateEvents,
   deleteEvents,
+  changeStatusEvents,
 };
