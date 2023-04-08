@@ -67,6 +67,7 @@ const orderSchema = new mongoose.Schema(
       ref: "Event",
       required: true,
     },
+    // history event di buat untuk mengantisipasi jika terjadi penghapusan event, sehingga kita masih bisa mendapatkan data transaksi di history
     historyEvent: {
       // title: {
       //   type: String,

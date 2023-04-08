@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-// kenapa file dari 2 schema ini di satuin ? karena 5 tiket untuk 1 event, artinya tiketCategories hanya untuk 1 event saja
 const ticketCategoriesSchema = new mongoose.Schema({
   type: {
     type: String,

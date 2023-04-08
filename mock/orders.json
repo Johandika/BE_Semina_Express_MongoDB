@@ -80,7 +80,7 @@
     },
     "payment": "623eb95b15919466fa3b53b2",
     "createdAt": {
-      "$date": { 
+      "$date": {
         "$numberLong": "0"
       }
     },
@@ -101,9 +101,9 @@
       }
     },
     "personalDetail": {
-      "firstName": "ega",
-      "lastName": "liayando",
-      "email": "egaliyando@gmail.com",
+      "firstName": "Johan",
+      "lastName": "Dika",
+      "email": "johanelyosse@gmail.com",
       "role": "designer"
     },
     "event": {
@@ -167,7 +167,7 @@
         "$oid": "62cfe726d8940572a095e58f"
       },
       "organizer": {
-        "$oid": "62cfe35e8ad11e7a5e240f26"
+        "$oid": "62cfe3728ad11e7a5e240f2a"
       }
     },
     "payment": "623eb95b15919466fa3b53b2",
