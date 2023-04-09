@@ -10,10 +10,10 @@ const orderDetailSchema = new mongoose.Schema({
       type: Number,
       default: 0,
     },
-    sumTicket: {
-      type: Number,
-      required: true,
-    },
+  },
+  sumTicket: {
+    type: Number,
+    required: true,
   },
 });
 
@@ -25,7 +25,7 @@ const orderSchema = new mongoose.Schema(
       required: true,
     },
     personalDetail: {
-      firsName: {
+      firstName: {
         type: String,
         required: [true, "Nama depan harus diisi!"],
         minlength: 3,

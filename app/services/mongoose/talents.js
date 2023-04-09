@@ -97,7 +97,7 @@ const deleteTalents = async (req) => {
 };
 
 const checkingTalents = async (id) => {
-  const result = await Talents.findOne({ _id: id, organizer: req.user.organizer });
+  const result = await Talents.findOne({ _id: id });
 
   if (!result) throw new NotFoundError(`Tidak ada pembicara dengan id :  ${id}`);
 

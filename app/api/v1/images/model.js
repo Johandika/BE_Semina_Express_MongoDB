@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { model, Schema } = mongoose;
 
-// Membuat schema untuk collection 'category'
+// Membuat schema untuk collection 'Image'
 let imageSchema = Schema(
   {
     name: { type: String },
