@@ -73,7 +73,11 @@ const updateTalents = async (req) => {
   // apa bila check true / data talents sudah ada maka kita tampilkan error bad request dengan message pembicara nama duplikat
   if (check) throw new BadRequestError("pembicara sudah terdaftar");
 
-  const result = await Talents.findOneAndUpdate({ _id: id }, { name, image, role }, { new: true, runValidators: true });
+  const result = await Talents.findOneAndUpdate(
+    { _id: id },
+    { name, image, role },
+    { new: true, runValidators: true }
+  );
 
   // jika id result false / null maka akan menampilkan error `Tidak ada pembicara dengan id` yang dikirim client
   if (!result) throw new NotFoundError(`Tidak ada pembicara dengan id :  ${id}`);

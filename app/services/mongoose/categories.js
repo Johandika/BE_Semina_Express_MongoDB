@@ -35,7 +35,11 @@ const updateCategories = async (req) => {
   if (check) throw new BadRequestError("kategori nama duplikat");
 
   // waktu update kita ga perlu masukin organizer lagi , karena organizernya ga bakal berubah, jadi cuma butuh ngecek aja
-  const result = await Categories.findOneAndUpdate({ _id: id }, { name }, { new: true, runValidators: true });
+  const result = await Categories.findOneAndUpdate(
+    { _id: id },
+    { name },
+    { new: true, runValidators: true }
+  );
 
   // jika id result false / null maka akan menampilkan error `Tidak ada Kategori dengan id` yang dikirim client
   if (!result) throw new NotFoundError(`Tidak ada Kategori dengan id :  ${id}`);

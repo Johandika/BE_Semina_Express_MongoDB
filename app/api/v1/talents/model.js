@@ -5,7 +5,9 @@ let talentSchema = Schema(
   {
     name: {
       type: String,
-      required: [true, "Nama harus diisi"],
+      required: [true, "Nama talents harus diisi"],
+      minlength: [3, "Panjang nama kategori minimal 3 karakter"],
+      maxLength: [20, "Panjang nama kategori maksimal 20 karakter"],
     },
     role: {
       type: String,

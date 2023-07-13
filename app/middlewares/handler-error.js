@@ -1,7 +1,7 @@
 const { StatusCodes } = require("http-status-codes");
 
 const errorHandlerMiddleware = (err, req, res, next) => {
-  console.log("err object");
+  console.log("err handle middleware");
   console.log(err.errors);
   // console.log(err.errors);
   let customError = {
@@ -19,7 +19,9 @@ const errorHandlerMiddleware = (err, req, res, next) => {
   }
 
   if (err.code && err.code === 11000) {
-    customError.msg = `Duplicate value entered for ${Object.keys(err.keyValue)} field, please choose another value`;
+    customError.msg = `Duplicate value entered for ${Object.keys(
+      err.keyValue
+    )} field, please choose another value`;
     customError.statusCode = 400;
   }
   if (err.name === "CastError") {
