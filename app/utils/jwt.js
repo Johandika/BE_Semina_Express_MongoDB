@@ -14,8 +14,6 @@ const createJWT = ({ payload }) => {
   return token;
 };
 
-const isTokenValid = ({ token }) => jwt.verify(token, jwtSecret);
-
 // pembuatan refresh token
 const createRefreshJWT = ({ payload }) => {
   const token = jwt.sign(payload, jwtRefreshTokenSecret, {
@@ -24,6 +22,7 @@ const createRefreshJWT = ({ payload }) => {
   return token;
 };
 
+const isTokenValid = ({ token }) => jwt.verify(token, jwtSecret);
 const isTokenValidRefreshToken = ({ token }) => jwt.verify(token, jwtRefreshTokenSecret);
 
 module.exports = {
